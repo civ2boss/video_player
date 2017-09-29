@@ -1,0 +1,60 @@
+/* Vimeo Styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  color: #343434;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  background: url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22500%22%3E%3Crect%20x%3D%220%22%20width%3D%224%22%20height%3D%22100%25%22%20style%3D%22fill%3A%2328a1d8%22%2F%3E%3Crect%20x%3D%224%22%20width%3D%2273%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23248bc7%22%2F%3E%3Crect%20x%3D%2277%22%20width%3D%2230%22%20height%3D%22100%25%22%20style%3D%22fill%3A%231e3955%22%2F%3E%3Crect%20x%3D%22107%22%20width%3D%226%22%20height%3D%22100%25%22%20style%3D%22fill%3A%232f5132%22%2F%3E%3Crect%20x%3D%22113%22%20width%3D%2247%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23416828%22%2F%3E%3Crect%20x%3D%22160%22%20width%3D%2257%22%20height%3D%22100%25%22%20style%3D%22fill%3A%237eaa29%22%2F%3E%3Crect%20x%3D%22217%22%20width%3D%2218%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23dcbd42%22%2F%3E%3Crect%20x%3D%22235%22%20width%3D%226%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23dcad27%22%2F%3E%3Crect%20x%3D%22241%22%20width%3D%2275%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23e39a23%22%2F%3E%3Crect%20x%3D%22316%22%20width%3D%2224%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23cc554c%22%2F%3E%3Crect%20x%3D%22340%22%20width%3D%2242%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23ca473f%22%2F%3E%3Crect%20x%3D%22382%22%20width%3D%2228%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23a72834%22%2F%3E%3Crect%20x%3D%22410%22%20width%3D%2258%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23735675%22%2F%3E%3Crect%20x%3D%22468%22%20width%3D%2226%22%20height%3D%22100%25%22%20style%3D%22fill%3A%23653e66%22%2F%3E%3Crect%20x%3D%22494%22%20width%3D%226%22%20height%3D%22100%25%22%20style%3D%22fill%3A%233b315b%22%2F%3E%3C%2Fsvg%3E%0A) repeat-x top left;
+  content: "";
+  display: block;
+  height: 5px;
+  width: 100%;
+}
+
+#wrap {
+  margin: 20px auto;
+  width: 960px;
+}
+
+.left {
+  float: left;
+  margin-right: 1em;
+  width: 640px;
+}
+
+.right {
+  float: right;
+  width: 300px;
+}
+
+.btn {
+  background: #345;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  margin-left: 0.75em;
+  padding: 7px 14px;
+}
+
+.btn:first-child {
+  margin-left: 0;
+}
+
+.btn-large {
+  font-size: 13px;
+  padding: 8px 18px 10px;
+}
