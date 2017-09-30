@@ -7,7 +7,17 @@ function createTitle() {
 }
 
 function createPlayerMarkup() {
-  return `<div id="player"></div>`;
+  return `
+    <div id="player">
+      <div class="overlay"></div>
+    </div>
+  `;
+}
+
+function createCueOverlay(text) {
+  return `
+    <div class="cue-overlay">${text}</div>
+  `;
 }
 
 function createCuesFormMarkup() {
@@ -25,8 +35,19 @@ function createCuesListMarkup() {
   return `
     <div class="cues">
       <h2>Cues</h2>
-      <ul class="cues-list"></ul>
+      <ul class="cues-list">
+        <li>No Cues yet</li>
+      </ul>
     </div>
+  `;
+}
+
+function createCueItemMarkup(time, text) {
+  return `
+    <li class="cue-${time}">
+      <span class="cue">${text}</span>
+      <span class="time">${time}</span>
+    </li>
   `;
 }
 
@@ -37,4 +58,5 @@ function createMarkup() {
   document.querySelector('.right').innerHTML = createCuesFormMarkup() + createCuesListMarkup();
 }
 
+export { createCueOverlay, createCueItemMarkup };
 export default createMarkup;
