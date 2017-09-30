@@ -40,6 +40,11 @@ textarea {
   font-size: 1.4rem;
   margin: 1rem;
   padding: 1rem;
+  pointer-events: auto;
+}
+
+.overlay .cue-overlay img {
+  max-width: 20%;
 }
 
 /* Cues List */
@@ -68,6 +73,10 @@ textarea {
 
 .cues-list .cue {
   padding-right: 1.6rem;
+}
+
+.cues-list .cue * {
+  max-width: 100%;
 }
 
 .cues-list .time {

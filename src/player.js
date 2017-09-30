@@ -15,8 +15,18 @@ function init() {
 }
 
 function initializePlayer() {
+  const urlParams = new URLSearchParams(window.location.search);
   overlay = document.querySelector('.overlay');
-  id = 76979871;
+
+  // Default video if none is found in url
+  if (urlParams.has('id')) {
+    id = urlParams.get('id');
+  } else {
+    id = 76979871;
+    urlParams.set('id', id);
+    window.history.replaceState({}, '', `${location.pathname}?${urlParams}`);
+  }
+
   player = new Player('player', {
     id: id,
     width: 640
@@ -100,6 +110,28 @@ function round(value) {
   return Number(Math.round(value+'e3') + 'e-3');
 }
 
+// Helper method - convert http urls to links
+function detectUrl(text) {
+  const regex = /https?:\/\/(?![^" ]*(?:jpg|png|gif))[^" ]+/g;
+  return text.replace(regex, function(url) {
+    return `<a href="${url}">${url}</a>`;
+  });
+}
+
+function detectImage(text) {
+  const regex = /https?:\/\/[^ ]+?(?:\.jpg|\.png|\.gif)/g;
+  return text.replace(regex, function(image) {
+    return `<img src="${image}" alt="" />`;
+  });
+}
+
+function detect(text) {
+  let convertedText;
+  convertedText = detectUrl(text);
+  convertedText = detectImage(convertedText);
+  return convertedText;
+}
+
 function addCue(event) {
   event.preventDefault();
 
@@ -107,7 +139,7 @@ function addCue(event) {
   if (textarea.value != '') {
     player.getCurrentTime()
       .then(function(seconds) {
-        cueList[seconds] = textarea.value;
+        cueList[seconds] = detect(textarea.value);
         localStorage.setItem(`video-${id}`, JSON.stringify(cueList));
         textarea.value = '';
         resetCues();
