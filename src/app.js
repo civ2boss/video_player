@@ -4,10 +4,7 @@ import './vimeo.css';
 import './style.css';
 
 function init() {
-  document.body.innerHTML = `<div id="wrap"></div>`;
-  document.querySelector('#wrap').innerHTML = createTitle() + createColumn('left') + createColumn('right');
-  document.querySelector('.left').innerHTML = createPlayerMarkup();
-  document.querySelector('.right').innerHTML = createCuesFormMarkup() + createCuesListMarkup();
+  createMarkup();
   initiatePlayer();
 }
 
@@ -41,6 +38,13 @@ function createCuesListMarkup() {
       <ul class="cues-list"></ul>
     </div>
   `;
+}
+
+function createMarkup() {
+  document.body.innerHTML = `<div id="wrap"></div>`;
+  document.querySelector('#wrap').innerHTML = createTitle() + createColumn('left') + createColumn('right');
+  document.querySelector('.left').innerHTML = createPlayerMarkup();
+  document.querySelector('.right').innerHTML = createCuesFormMarkup() + createCuesListMarkup();
 }
 
 function initiatePlayer() {
