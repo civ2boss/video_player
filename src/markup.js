@@ -13,9 +13,9 @@ function createPlayerMarkup() {
 function createCuesFormMarkup() {
   return `
     <form class="cues-form">
-      <textarea></textarea>
+      <textarea class="cue-text"></textarea>
       <div class="buttons">
-        <button class="btn btn-large" type="submit">Add Cue</button>
+        <button class="btn btn-large" id="addCue" type="submit">Add Cue</button>
       </div>
     </form>
   `;
