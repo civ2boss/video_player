@@ -55,9 +55,16 @@ function trackTime() {
 function initializeCues() {
   const form = document.querySelector('.cues-form');
   textarea = document.querySelector('.cue-text');
+  const list = document.querySelector('.cues-list');
 
   form.addEventListener('submit', addCue);
   resetCues();
+  list.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (event.target.className == 'cue-delete') {
+      deleteCue(event.target.dataset.seconds);
+    }
+  });
 }
 
 function resetCues() {
@@ -68,7 +75,7 @@ function resetCues() {
 
     let items = Object.entries(cueList).map((cue) => {
       const [time, text] = cue;
-      return createCueItemMarkup(secondsToHms(time), text);
+      return createCueItemMarkup(time, secondsToHms(time), text);
     });
 
     items = items.reduce((all, next) => all + next);
@@ -108,6 +115,12 @@ function addCue(event) {
         console.error(error);
       });
   }
+}
+
+function deleteCue(seconds) {
+  delete cueList[seconds];
+  localStorage.setItem(`video-${id}`, JSON.stringify(cueList));
+  resetCues();
 }
 
 export default init;

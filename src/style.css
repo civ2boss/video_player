@@ -40,7 +40,6 @@ textarea {
   font-size: 1.4rem;
   margin: 1rem;
   padding: 1rem;
-  transition: all 0.5s;
 }
 
 /* Cues List */
@@ -59,6 +58,7 @@ textarea {
   margin-bottom: 1rem;
   min-height: 7.5rem;
   padding: 1rem;
+  position: relative;
 }
 
 .cues-list .cue,
@@ -66,7 +66,19 @@ textarea {
   flex: 0 0 100%;
 }
 
+.cues-list .cue {
+  padding-right: 1.6rem;
+}
+
 .cues-list .time {
   align-self: flex-end;
   text-align: right;
+}
+
+.cues-list .cue-delete {
+  color: #fff;
+  position: absolute;
+  right: 1rem;
+  text-decoration: none;
+  top: 0.5rem;
 }

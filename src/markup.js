@@ -42,11 +42,12 @@ function createCuesListMarkup() {
   `;
 }
 
-function createCueItemMarkup(time, text) {
+function createCueItemMarkup(time, displayTime, text) {
   return `
     <li class="cue-${time}">
       <span class="cue">${text}</span>
-      <span class="time">${time}</span>
+      <span class="time">${displayTime}</span>
+      <a class="cue-delete" href="#" data-seconds="${time}">&times;</a>
     </li>
   `;
 }
