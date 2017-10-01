@@ -83,13 +83,18 @@ function resetCues() {
   if (localStorageReference) {
     cueList = JSON.parse(localStorageReference);
 
-    let items = Object.entries(cueList).map((cue) => {
-      const [time, text] = cue;
-      return createCueItemMarkup(time, secondsToHms(time), text);
-    });
+    if (Object.keys(cueList).length) {
+      let items = Object.entries(cueList).map((cue) => {
+        const [time, text] = cue;
+        return createCueItemMarkup(time, secondsToHms(time), text);
+      });
 
-    items = items.reduce((all, next) => all + next);
-    list.innerHTML = items;
+      items = items.reduce((all, next) => all + next);
+      list.innerHTML = items;
+    } else {
+      list.innerHTML = `<li>No Cues yet</li>`;
+    }
+
   }
 }
 
