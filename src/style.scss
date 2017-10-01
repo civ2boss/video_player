@@ -1,0 +1,101 @@
+body,
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+textarea {
+  border: 2px solid #a9a9a9;
+  font-family: "Consolas", "Liberation Mono", "Courier", monospace;
+  font-size: 1.4rem;
+  height: 10rem;
+  margin-bottom: 1rem;
+  padding: 4px;
+  width: 100%;
+}
+
+/* Video Overlay */
+#player {
+  position: relative;
+}
+
+.overlay {
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+
+  .cue-overlay {
+    background: hsla(0, 0%, 0%, 0.3);
+    color: #fff;
+    display: inline-block;
+    font-size: 1.4rem;
+    margin: 1rem;
+    padding: 1rem;
+    pointer-events: auto;
+  }
+
+  .cue-overlay img {
+    max-width: 20%;
+  }
+
+  .cue-overlay a {
+    color: #fff;
+  }
+}
+
+/* Cues List */
+.cues-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    background-color: #789;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    min-height: 7.5rem;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .cue,
+  .time {
+    flex: 0 0 100%;
+  }
+
+  .cue {
+    padding-right: 1.6rem;
+
+    * {
+      max-width: 100%;
+    }
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .time {
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  .cue-delete {
+    color: #fff;
+    position: absolute;
+    right: 1rem;
+    text-decoration: none;
+    top: 0.5rem;
+  }
+}

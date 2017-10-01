@@ -32,12 +32,8 @@ function initializePlayer() {
     width: 640
   });
 
-  player.on('play', (data) => {
-    trackTime();
-  });
-  player.on('seeked', (data) => {
-    currentTime = data.seconds;
-  })
+  player.on('play', trackTime);
+  player.on('seeked', (data) => currentTime = data.seconds);
 }
 
 function trackTime() {
@@ -94,7 +90,6 @@ function resetCues() {
     } else {
       list.innerHTML = `<li>No Cues yet</li>`;
     }
-
   }
 }
 
@@ -115,6 +110,16 @@ function round(value) {
   return Number(Math.round(value+'e3') + 'e-3');
 }
 
+// Helper method - escape html
+function escapeHtml(text) {
+  return text.replace(/&/g, '&amp;')
+            .replace(/>/g, '&gt;')
+            .replace(/</g, '&lt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/`/g, '&#96;');
+}
+
 // Helper method - convert http urls to links
 function detectUrl(text) {
   const regex = /https?:\/\/(?![^" ]*(?:jpg|png|gif))[^" ]+/g;
@@ -123,6 +128,7 @@ function detectUrl(text) {
   });
 }
 
+// Helper method - convert http image urls to images
 function detectImage(text) {
   const regex = /https?:\/\/[^ ]+?(?:\.jpg|\.png|\.gif)/g;
   return text.replace(regex, function(image) {
@@ -132,7 +138,8 @@ function detectImage(text) {
 
 function detect(text) {
   let convertedText;
-  convertedText = detectUrl(text);
+  convertedText = escapeHtml(text);
+  convertedText = detectUrl(convertedText);
   convertedText = detectImage(convertedText);
   return convertedText;
 }
