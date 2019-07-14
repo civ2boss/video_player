@@ -4,14 +4,6 @@ This is the Vimeo player with Cues added.
 
 ## Installation
 
-I used Yarn so both that and NPM can be used:
-
-```bash
-yarn install
-```
-
-or
-
 ```bash
 npm install
 ```
